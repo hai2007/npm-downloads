@@ -2,24 +2,40 @@
 <html lang="zh-cn">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=1100, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Compare npm downloads</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1100, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Compare npm downloads</title>
+    <script>
+
+        function addNpmPkg() {
+            window.location.href = window.location.href + "," + document.getElementById('add-npm-pkg-input').value;
+        }
+
+    </script>
 </head>
 
 <body>
 
-  <!-- 挂载根 -->
-  <div class='view'>
+    <!-- 挂载根 -->
+    <div class='view'>
 
-    <!-- 画布 -->
-    <div id="root" class='canvas'></div>
+        <!-- 画布 -->
+        <div id="root" class='canvas'></div>
 
-  </div>
+        <!-- 输入框 -->
+        <div class='input-add'>
+            <input type="text" id="add-npm-pkg-input" placeholder="输入需要比较的npm包名称">
+            <span onclick="addNpmPkg()">+</span>
+        </div>
 
-  <!-- 引入打包文件 -->
-  <script src="./dist/main.v1.js"></script>
+        <!-- fork -->
+        <a href="https://github.com/hai2007/npm-downloads" target="_blank" class='fork'>Fork Library on Github</a>
+
+    </div>
+
+    <!-- 引入打包文件 -->
+    <script src="./dist/main.v2.js"></script>
 
 </body>
 

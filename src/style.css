@@ -9,3 +9,56 @@
 body {
     background-color: #332929;
 }
+
+.input-add {
+    position: fixed;
+    left: 200px;
+    top: 80px;
+}
+
+.input-add {
+    font-size: 0;
+}
+
+.input-add>* {
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.input-add>input {
+    height: 40px;
+    display: inline-block;
+    width: 220px;
+    background-color: #c5c0c0;
+    padding: 10px;
+    color: #fff;
+}
+
+.input-add>span {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    color: #000;
+    font-size: 30px;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fork {
+    position: fixed;
+    transform: rotate(45deg);
+    line-height: 1.6em;
+    transform-origin: 150px 23px;
+    text-align: center;
+    font-family: sans-serif;
+    display: inline-block;
+    top: 60px;
+    right: -60px;
+    width: 300px;
+    background-color: #03a9f4;
+    outline: 4px solid #03a9f4;
+    border: 2px dashed #065b9f;
+    color: #fafafa;
+}

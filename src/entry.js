@@ -22,7 +22,7 @@ window.clunch = new Clunch({
     time: 2000,
     data() {
         return {
-            loadSize: 12,
+            loadSize: 60,
             pkgs: [],
             yRuler: [],
             xDist: 0
@@ -75,7 +75,7 @@ window.clunch = new Clunch({
 
                 this.yRuler = rulerValue(maxValue > 100 ? maxValue : 100, minValue, 10);
                 this.pkgs = pkgs;
-                this.xDist = (this._width - 100) / (this.pkgs[0].value.length - 1);
+                this.xDist = (this._width - 200) / (this.pkgs[0].value.length - 1);
 
                 // 完毕以后 ，停止loading提示
                 clearInterval(interval);
@@ -87,7 +87,9 @@ window.clunch = new Clunch({
 
     }],
     resized() {
-        this.xDist = (this._width - 100) / (this.pkgs[0].value.length - 1);
+        try {
+            this.xDist = (this._width - 200) / (this.pkgs[0].value.length - 1);
+        } catch (e) { }
     }
 }).$bind('click', function (target) {
 
