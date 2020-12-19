@@ -1,6 +1,6 @@
 {
   "name": "npm-downloads",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Compare npm downloads.",
   "main": "./dist/main.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/hai2007/npm-downloads#readme",
   "dependencies": {
     "@hai2007/style": "^0.2.1",
-    "clunch": "^0.2.1"
+    "clunch": "^0.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

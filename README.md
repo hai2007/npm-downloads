@@ -5,10 +5,10 @@ npm包下载量比较。
 
 我们以```clunch```为例，下面是项目的最终效果，点击它你就会进入具体的下载统计页面。
 
-<a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@clunch"><img src="https://img.shields.io/npm/dm/clunch.svg" alt="Downloads"></a>
+<a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=clunch"><img src="https://img.shields.io/npm/dm/clunch.svg" alt="Downloads"></a>
 
 ```html
-<a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=@clunch">
+<a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=clunch">
     <img src="https://img.shields.io/npm/dm/clunch.svg" alt="Downloads">
 </a>
 ```

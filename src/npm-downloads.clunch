@@ -1,0 +1,34 @@
+<!-- 温馨提示 -->
+<text c-if='loadSize!=-1' :x='_width*0.5' :y='_height*0.5' align='center' :font-size='loadSize'>
+    Loading......
+</text>
+
+<!-- 绘制图形 -->
+<group c-if='loadSize==-1'>
+
+    <!-- Y刻度尺 -->
+    <ruler color='white' x='50' :y='_height-50' :length='_height-100' :value='yRuler.ruler' direction='BT'
+        mark-direction='left' />
+
+    <!-- 曲线 -->
+    <path c-for='item in pkgs' :stroke-color='item.color'>
+        <move-to x='50' :y='_height-50-(item.value[0]-yRuler.min)/(yRuler.max-yRuler.min)*(_height-100)' />
+        <line-to :x='50+index*xDist' :y='_height-50-(dot-yRuler.min)/(yRuler.max-yRuler.min)*(_height-100)'
+            c-for='(dot,index) in item.value' />
+    </path>
+
+    <!-- 绘制颜色提示 -->
+    <group c-for='(item,index) in pkgs'>
+
+        <rect x='100' :y='index*50 + 100' baseline='middle' width='100' height='30' :fill-color='item.color' />
+        <rect x='200' :y='index*50 + 100' baseline='middle' width='30' height='30' fill-color='white'
+            :$id='item.package+":rect"' />
+
+        <text x='150' :y='index*50 + 100' align='center' :content='item.package' fill-color='white' />
+        <text x='215' :y='index*50 + 100' align='center' fill-color='gray' :$id='item.package+":text"'>
+            X
+        </text>
+
+    </group>
+
+</group>
