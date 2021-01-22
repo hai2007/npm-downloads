@@ -42,3 +42,6 @@
 <text x='200' y='50' font-size='40' fill-color='red'>
     npm-downloads
 </text>
+
+<!-- 悬浮提示 -->
+<ui-hover c-if='flag' :x='hover.x' :y='hover.y' width='300' :index='hover.index' />

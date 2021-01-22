@@ -15,17 +15,23 @@ import getDownloadsData from './tools/getDownloadsData';
 import toValue from './tools/toValue';
 import { rulerValue } from './tools/ruler';
 
+// 悬浮组件
+import uiHover from './components/ui-hover';
+Clunch.series('ui-hover', uiHover);
+
 // 启动绘图
 window.clunch = new Clunch({
     el: document.getElementById('root'),
     render: npmDownloads,
-    time: 2000,
+    time: 500,
     data() {
         return {
             loadSize: 60,
             pkgs: [],
             yRuler: [],
-            xDist: 0
+            xDist: 0,
+            flag: false,
+            hover: {}
         };
     },
     mounted: ['$getRandomColors', function ($getRandomColors) {
@@ -46,7 +52,7 @@ window.clunch = new Clunch({
             let interval = setInterval(() => {
                 if (this.loadSize == 12) this.loadSize = 60;
                 else this.loadSize = 12;
-            }, 2000);
+            }, 500);
 
             // 等所有的包都请求完毕以后
             Promise.all(promiseArray).then((values) => {
@@ -56,8 +62,12 @@ window.clunch = new Clunch({
                 for (let i = 0; i < values.length; i++) {
                     pkgs.push(JSON.parse(values[i]));
 
+                    let resultData = toValue(pkgs[pkgs.length - 1].downloads, paramJSON.interval);
+
                     // 实际显示用值
-                    pkgs[pkgs.length - 1].value = toValue(pkgs[pkgs.length - 1].downloads, paramJSON.interval);
+                    pkgs[pkgs.length - 1].value = resultData.value;
+
+                    pkgs[pkgs.length - 1].time = resultData.time;
 
                     // 颜色
                     pkgs[pkgs.length - 1].color = colors[i];
@@ -106,6 +116,18 @@ window.clunch = new Clunch({
         this.__el.style.cursor = 'pointer';
     } else {
         this.__el.style.cursor = 'default';
+    }
+
+    let index = Math.round((target.left - 150) / this.xDist);
+    if (index < 0 || this.pkgs.length < 1 || index >= this.pkgs[0].value.length) {
+        this.flag = false;
+    } else {
+        this.flag = true;
+        this.hover = {
+            x: target.left,
+            y: target.top,
+            index
+        };
     }
 
 });

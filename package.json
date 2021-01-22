@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm install && npm run dev",
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "cuf -d ./dist && webpack --config webpack.prod.js"
+    "build": "hai2007_nodejs -d ./dist && webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -17,23 +17,23 @@
     "downloads",
     "clunch"
   ],
-  "author": "hai2007",
+  "author": "你好2007",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hai2007/npm-downloads/issues"
   },
   "homepage": "https://github.com/hai2007/npm-downloads#readme",
   "dependencies": {
-    "@hai2007/style": "^0.2.1",
-    "clunch": "^0.2.2"
+    "@hai2007/style": "^0.2.3",
+    "clunch": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
+    "@hai2007/nodejs": "^1.0.0",
     "autoprefixer": "^9.7.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^2.1.1",
-    "cuf": "^1.2.0",
     "file-loader": "^4.2.0",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
