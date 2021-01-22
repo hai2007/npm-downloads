@@ -7,8 +7,6 @@ export default ['number', function ($number) {
             index: $number()
         },
         link: function (painter, attr) {
-            console.log(this.pkgs[1].value[attr.index]);
-            console.log(this.pkgs[1].time[attr.index]);
 
             let x = attr.x;
             let y = attr.y;
