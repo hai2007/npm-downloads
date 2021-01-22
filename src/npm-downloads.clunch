@@ -28,10 +28,10 @@
 
         <rect x='200' :y='index*40 + 160' baseline='middle' width='160' height='30' :fill-color='item.color' />
         <rect x='360' :y='index*40 + 160' baseline='middle' width='30' height='30' fill-color='white'
-            :$id='item.package+":rect"' />
+            :_id='item.package+":rect"' />
 
         <text x='280' :y='index*40 + 160' align='center' :content='item.package' fill-color='white' />
-        <text x='375' :y='index*40 + 160' align='center' fill-color='gray' :$id='item.package+":text"'>
+        <text x='375' :y='index*40 + 160' align='center' fill-color='gray' :_id='item.package+":text"'>
             X
         </text>
 
