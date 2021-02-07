@@ -19,8 +19,9 @@
 
     <!-- 结点 -->
     <group c-for='item in pkgs'>
-        <circle radius='2' fill-color='white' :cx='150+index*xDist'
-            :cy='_height-50-(dot-yRuler.min)/(yRuler.max-yRuler.min)*(_height-100)' c-for='(dot,index) in item.value' />
+        <circle :radius='hover.index==index?5:2' type='full' :stroke-color='item.color' fill-color='white'
+            :cx='150+index*xDist' :cy='_height-50-(dot-yRuler.min)/(yRuler.max-yRuler.min)*(_height-100)'
+            c-for='(dot,index) in item.value' />
     </group>
 
     <!-- 绘制颜色提示 -->

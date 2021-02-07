@@ -13,7 +13,6 @@ import npmDownloads from './npm-downloads.clunch';
 import evalParam from './tools/evalParam';
 import getDownloadsData from './tools/getDownloadsData';
 import toValue from './tools/toValue';
-import { rulerValue } from './tools/ruler';
 
 // 悬浮组件
 import uiHover from './components/ui-hover';
@@ -23,7 +22,7 @@ Clunch.series('ui-hover', uiHover);
 window.clunch = new Clunch({
     el: document.getElementById('root'),
     render: npmDownloads,
-    time: 500,
+    animation: false,
     data() {
         return {
             loadSize: 60,
@@ -34,9 +33,11 @@ window.clunch = new Clunch({
             hover: {}
         };
     },
-    mounted: ['$getRandomColors', function ($getRandomColors) {
+    mounted: ['$getLoopColors', '$ruler', function ($getLoopColors, $ruler) {
 
         return function () {
+
+            window.getLoopColors=$getLoopColors;
 
             // 获取npm包名和时间长度
             let paramJSON = evalParam(window.location.href);
@@ -58,7 +59,7 @@ window.clunch = new Clunch({
             Promise.all(promiseArray).then((values) => {
 
                 let pkgs = [];
-                let colors = $getRandomColors(values.length);
+                let colors = $getLoopColors(values.length);
                 for (let i = 0; i < values.length; i++) {
                     pkgs.push(JSON.parse(values[i]));
 
@@ -83,7 +84,7 @@ window.clunch = new Clunch({
                         if (pkgs[i].value[j] > maxValue) maxValue = pkgs[i].value[j];
                     }
 
-                this.yRuler = rulerValue(maxValue > 100 ? maxValue : 100, minValue, 10);
+                this.yRuler = $ruler(maxValue > 100 ? maxValue : 100, minValue, 10);
                 this.pkgs = pkgs;
                 this.xDist = (this._width - 200) / (this.pkgs[0].value.length - 1);
 
