@@ -1,6 +1,10 @@
 # npm-downloads
 npm包下载量比较。
 
+<a href="https://github.com/hai2007/npm-downloads">
+    <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/npm-downloads?style=social">
+</a>
+
 ## 如何使用？
 
 我们以```clunch```为例，下面是项目的最终效果，点击它你就会进入具体的下载统计页面。
@@ -34,11 +38,6 @@ npm run dev
 ```bash
 npm run build
 ```
-
-## 联系我们
-
-- QQ: 2501482523
-- Email: 2501482523@qq.com
 
 开源协议
 ---------------------------------------
