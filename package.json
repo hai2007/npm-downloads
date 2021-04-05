@@ -25,7 +25,7 @@
   "homepage": "https://github.com/hai2007/npm-downloads#readme",
   "dependencies": {
     "@hai2007/style": "^0.2.3",
-    "clunch": "^1.4.1"
+    "clunch": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

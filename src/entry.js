@@ -22,7 +22,6 @@ Clunch.series('ui-hover', uiHover);
 window.clunch = new Clunch({
     el: document.getElementById('root'),
     render: npmDownloads,
-    animation: false,
     data() {
         return {
             loadSize: 60,

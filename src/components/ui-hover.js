@@ -18,7 +18,7 @@ export default ['number', function ($number) {
             if (y + height > this._height) y -= height;
 
             // 绘制背景
-            painter.config('fillStyle', '#aaaaaa66').fillRect(x, y, width, height);
+            painter.config('fillStyle', '#ffffff').fillRect(x, y, width, height);
 
             // 绘制日期
             painter.config({

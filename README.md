@@ -1,9 +1,18 @@
 # npm-downloads
-npm包下载量比较。
 
-<a href="https://github.com/hai2007/npm-downloads">
-    <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/npm-downloads?style=social">
-</a>
+<img src='./view.png' />
+
+<p>
+    <a href="https://github.com/hai2007/npm-downloads/graphs/code-frequency" target='_blank'>
+        <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/hai2007/npm-downloads">
+    </a>
+    <a href="https://github.com/hai2007/npm-downloads/graphs/commit-activity" target='_blank'>
+        <img alt="GitHub repo commit" src="https://img.shields.io/github/last-commit/hai2007/npm-downloads">
+    </a>
+    <a href="https://github.com/hai2007/npm-downloads" target='_blank'>
+        <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/npm-downloads?style=social">
+    </a>
+</p >
 
 ## 如何使用？
 
