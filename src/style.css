@@ -8,6 +8,7 @@
 
 body {
     background-color: #332929;
+    background-image: url('./assets/bg.png');
 }
 
 .input-add {
@@ -54,11 +55,11 @@ body {
     text-align: center;
     font-family: sans-serif;
     display: inline-block;
-    top: 60px;
-    right: -60px;
+    bottom: 53px;
+    left: -91px;
     width: 300px;
-    background-color: #03a9f4;
-    outline: 4px solid #03a9f4;
-    border: 2px dashed #065b9f;
-    color: #fafafa;
+    background-color: #ff0000;
+    outline: 4px solid #ff0000;
+    border: 2px dashed #ffffff;
+    color: #ffffff;
 }

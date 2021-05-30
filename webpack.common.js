@@ -2,7 +2,7 @@ module.exports = {
     entry: ['./src/entry.js'],
     output: {
         path: __dirname,
-        filename: 'dist/main.v5.js'
+        filename: 'dist/main.v6.js'
     },
     module: {
         rules: [{

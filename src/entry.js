@@ -36,7 +36,7 @@ window.clunch = new Clunch({
 
         return function () {
 
-            window.getLoopColors=$getLoopColors;
+            window.getLoopColors = $getLoopColors;
 
             // 获取npm包名和时间长度
             let paramJSON = evalParam(window.location.href);
@@ -60,7 +60,7 @@ window.clunch = new Clunch({
                 let pkgs = [];
                 let colors = $getLoopColors(values.length);
                 for (let i = 0; i < values.length; i++) {
-                    pkgs.push(JSON.parse(values[i]));
+                    pkgs.push(values[i]);
 
                     let resultData = toValue(pkgs[pkgs.length - 1].downloads, paramJSON.interval);
 
@@ -83,9 +83,30 @@ window.clunch = new Clunch({
                         if (pkgs[i].value[j] > maxValue) maxValue = pkgs[i].value[j];
                     }
 
-                this.yRuler = $ruler(maxValue > 100 ? maxValue : 100, minValue, 10);
+                let yRuler = $ruler(maxValue > 100 ? maxValue : 100, minValue, 10);
+
+                // 刻度尺算法有问题，校对一下
+                if (yRuler.min < 0) {
+                    yRuler.min = 0;
+                    yRuler.ruler = [];
+                    let value = 0;
+                    while (value <= yRuler.max) {
+                        yRuler.ruler.push(value);
+                        value += yRuler.distance;
+                    }
+                    yRuler.max = value - yRuler.distance;
+                }
+
+                this.yRuler = yRuler;
+
                 this.pkgs = pkgs;
                 this.xDist = (this._width - 200) / (this.pkgs[0].value.length - 1);
+
+            }).catch(error => {
+
+                alert(error||"请求发生未知错误");
+
+            }).finally(() => {
 
                 // 完毕以后 ，停止loading提示
                 clearInterval(interval);

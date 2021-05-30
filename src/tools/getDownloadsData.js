@@ -1,3 +1,5 @@
+import xhr from '@hai2007/xhr';
+
 let get = url => {
 
     let data = sessionStorage.getItem(url);
@@ -7,30 +9,41 @@ let get = url => {
         });
     }
 
-    // 获取xhr对象
-    let xhr = window.XMLHttpRequest ?
-        // IE7+, Firefox, Chrome, Opera, Safari
-        new XMLHttpRequest() :
-        // IE6, IE5
-        new ActiveXObject("Microsoft.XMLHTTP");
+    return new Promise((resolve, reject) => {
 
-    // 打开请求地址
-    xhr.open("GET", url, true);
+        xhr({
 
-    let promise = new Promise(resolve => {
+            method: "GET",
+            url: url,
+            data: {
 
-        // 请求成功回调
-        xhr.onload = () => {
-            sessionStorage.setItem(url, JSON.stringify(xhr.response));
-            resolve(xhr.response);
-        };
+            },
+            header: {
+
+            },
+            timeout: 60000,
+            xhr: () => {
+                return window.XMLHttpRequest ?
+                    // IE7+, Firefox, Chrome, Opera, Safari
+                    new XMLHttpRequest() :
+                    // IE6, IE5
+                    new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+        }, function (data) {
+
+            // 成功回调
+            sessionStorage.setItem(url, data.data);
+            resolve(JSON.parse(data.data));
+
+        }, function (error) {
+
+            // 失败回调
+            reject(error.data);
+
+        });
 
     });
-
-    // 发送请求
-    xhr.send();
-
-    return promise;
 
 };
 

@@ -24,13 +24,14 @@
   },
   "homepage": "https://github.com/hai2007/npm-downloads#readme",
   "dependencies": {
-    "@hai2007/style": "^0.2.3",
-    "clunch": "^1.5.1"
+    "@hai2007/style": "^0.3.0",
+    "@hai2007/xhr": "^0.1.2",
+    "clunch": "^1.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
-    "@hai2007/nodejs": "^1.0.0",
+    "@hai2007/nodejs": "^1.0.1",
     "autoprefixer": "^9.7.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^2.1.1",
