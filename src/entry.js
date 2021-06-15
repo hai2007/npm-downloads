@@ -85,16 +85,9 @@ window.clunch = new Clunch({
 
                 let yRuler = $ruler(maxValue > 100 ? maxValue : 100, minValue, 10);
 
-                // 刻度尺算法有问题，校对一下
-                if (yRuler.min < 0) {
-                    yRuler.min = 0;
-                    yRuler.ruler = [];
-                    let value = 0;
-                    while (value <= yRuler.max) {
-                        yRuler.ruler.push(value);
-                        value += yRuler.distance;
-                    }
-                    yRuler.max = value - yRuler.distance;
+                // 不需要保留小数点
+                for (let i = 0; i < yRuler.ruler.length; i++) {
+                    yRuler.ruler[i] = +((yRuler.ruler[i]).toFixed(0));
                 }
 
                 this.yRuler = yRuler;
@@ -104,7 +97,7 @@ window.clunch = new Clunch({
 
             }).catch(error => {
 
-                alert(error||"请求发生未知错误");
+                alert(error || "请求发生未知错误");
 
             }).finally(() => {
 

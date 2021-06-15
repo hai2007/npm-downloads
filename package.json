@@ -2,7 +2,6 @@
   "name": "npm-downloads",
   "version": "0.0.0",
   "description": "Compare npm downloads.",
-  "main": "./dist/main.js",
   "scripts": {
     "start": "npm install && npm run dev",
     "dev": "webpack-dev-server --config webpack.dev.js",
@@ -26,7 +25,7 @@
   "dependencies": {
     "@hai2007/style": "^0.3.0",
     "@hai2007/xhr": "^0.1.2",
-    "clunch": "^1.6.0"
+    "clunch": "^1.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
